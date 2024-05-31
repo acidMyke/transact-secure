@@ -1,28 +1,64 @@
-import type { Config } from 'tailwindcss';
-import daisyui from 'daisyui';
+import { fontFamily } from "tailwindcss/defaultTheme";
+import type { Config } from "tailwindcss";
 
-export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
-
+const config: Config = {
+	darkMode: ["class"],
+	content: ["./src/**/*.{html,js,svelte,ts}"],
+	safelist: ["dark"],
 	theme: {
-		extend: {}
-	},
-
-	plugins: [daisyui],
-	daisyui: {
-		
-		themes: [{
-			'default': {
-				'primary': '#89b4fa', // blue
-				'secondary': '#f5c2e7', // pink
-				'accent': '#94e2d5', // teal
-				'neutral': '#11111b', // crust
-				'base-100': '#1e1e2e', // base
-				'info': '#74c7ec', // sapphire
-				'success': '#a6e3a1', // green
-				'warning': '#f9e2af', // yellow
-				'error': '#f38ba8' // red
+		container: {
+			center: true,
+			padding: "2rem",
+			screens: {
+				"2xl": "1400px"
 			}
-		}]
-	}
-} as Config;
+		},
+		extend: {
+			colors: {
+				border: "hsl(var(--border) / <alpha-value>)",
+				input: "hsl(var(--input) / <alpha-value>)",
+				ring: "hsl(var(--ring) / <alpha-value>)",
+				background: "hsl(var(--background) / <alpha-value>)",
+				foreground: "hsl(var(--foreground) / <alpha-value>)",
+				primary: {
+					DEFAULT: "hsl(var(--primary) / <alpha-value>)",
+					foreground: "hsl(var(--primary-foreground) / <alpha-value>)"
+				},
+				secondary: {
+					DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
+					foreground: "hsl(var(--secondary-foreground) / <alpha-value>)"
+				},
+				destructive: {
+					DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
+					foreground: "hsl(var(--destructive-foreground) / <alpha-value>)"
+				},
+				muted: {
+					DEFAULT: "hsl(var(--muted) / <alpha-value>)",
+					foreground: "hsl(var(--muted-foreground) / <alpha-value>)"
+				},
+				accent: {
+					DEFAULT: "hsl(var(--accent) / <alpha-value>)",
+					foreground: "hsl(var(--accent-foreground) / <alpha-value>)"
+				},
+				popover: {
+					DEFAULT: "hsl(var(--popover) / <alpha-value>)",
+					foreground: "hsl(var(--popover-foreground) / <alpha-value>)"
+				},
+				card: {
+					DEFAULT: "hsl(var(--card) / <alpha-value>)",
+					foreground: "hsl(var(--card-foreground) / <alpha-value>)"
+				}
+			},
+			borderRadius: {
+				lg: "var(--radius)",
+				md: "calc(var(--radius) - 2px)",
+				sm: "calc(var(--radius) - 4px)"
+			},
+			fontFamily: {
+				sans: [...fontFamily.sans]
+			}
+		}
+	},
+};
+
+export default config;
