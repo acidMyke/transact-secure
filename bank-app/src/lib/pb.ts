@@ -22,6 +22,7 @@ export interface User extends BaseRecord {
 	verified: boolean;
 	name: string;
 	avatar: string;
+	creditRating: number;
 	flag: '' | 'normal' | 'suspicious' | 'banned';
 }
 

@@ -7,7 +7,7 @@
 	let password = '';
 
 	async function login() {
-		await pb.collection('users').authWithPassword(username, password);
+		const authData = await pb.collection('users').authWithPassword(username, password);
 	}
 </script>
 
