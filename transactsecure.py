@@ -31,6 +31,9 @@ df['sender_name_tokens'] = df['sender_name'].apply(preprocess_text)
 all_tokens = df['message_tokens'].tolist() + df['recipient_name_tokens'].tolist() + df['sender_name_tokens'].tolist()
 word2vec_model = gensim.models.Word2Vec(all_tokens, vector_size=100, window=5, min_count=1, workers=4)
 
+# Save the Word2Vec model
+word2vec_model.save("word2vec_model.bin")
+
 # Function to get the embedding for a text
 def get_text_embedding(tokens, model):
     embedding = np.mean([model.wv[word] for word in tokens if word in model.wv], axis=0)
