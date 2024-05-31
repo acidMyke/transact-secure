@@ -17,6 +17,9 @@ importers:
       formsnap:
         specifier: ^1.0.0
         version: 1.0.0(svelte@4.2.17)(sveltekit-superforms@2.14.0(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.17)(vite@5.2.12))(svelte@4.2.17)(vite@5.2.12))(@types/json-schema@7.0.15)(esbuild-runner@2.2.2(esbuild@0.20.2))(esbuild@0.20.2)(svelte@4.2.17))
+      lucide-svelte:
+        specifier: ^0.381.0
+        version: 0.381.0(svelte@4.2.17)
       pocketbase:
         specifier: ^0.21.2
         version: 0.21.2
@@ -1040,6 +1043,11 @@ packages:
   lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
+
+  lucide-svelte@0.381.0:
+    resolution: {integrity: sha512-bk9nlg6XHzvYoCA+rBLOFNsdJY6+qG/hRw4f6urUzvfnzlEue5+idoFeXXf2pCiNoSE/05IWper2cZ9BDV4EAQ==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
 
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
@@ -2763,6 +2771,10 @@ snapshots:
     dependencies:
       yallist: 4.0.0
     optional: true
+
+  lucide-svelte@0.381.0(svelte@4.2.17):
+    dependencies:
+      svelte: 4.2.17
 
   magic-string@0.30.10:
     dependencies:
