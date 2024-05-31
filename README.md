@@ -14,9 +14,10 @@ This repo is part of submission for NUS Lifehack 2024 Hackathon for the team Mac
 
 ## Team members
 
-Leader: [Samuel](@SamuelkohP04)
+Leader: Samuel @SamuelkohP04
+
 Member:
 
-- [Wei Sin](@weisintai)
-- [Bryan](@joe-oemm)
-- [Jun Jie (acidMyke)](@acidMyke)
+- Wei Sin @weisintai
+- Bryan @joe-oemm
+- Jun Jie (acidMyke) @acidMyke
