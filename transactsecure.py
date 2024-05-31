@@ -8,11 +8,11 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, accuracy_score
 import pickle
 
-# Download necessary NLTK data
+# Initialize NLTK and download necessary data
 nltk.download('punkt')
 
-# Load your dataset
-file_path = 'toy_dataset.csv'  # Update this path
+# Load the dataset
+file_path = 'toy_dataset_with_probabilities.csv'
 df = pd.read_csv(file_path)
 
 # Preprocess the text
@@ -67,11 +67,11 @@ df = df.drop(columns=['message_embedding', 'recipient_name_embedding', 'sender_n
 columns_to_drop = df.select_dtypes(include=['object', 'datetime64[ns]']).columns
 
 # Drop the identified columns
-df = df.drop(columns=columns_to_drop)
+df = df.drop(columns=columns_to_drop, errors='ignore')
 
 # Prepare features and target variable
-X = df.drop(columns=['is_scam'])
-y = df['is_scam']
+X = df.drop(columns=['is_scam_prob'])
+y = df['is_scam_prob'].apply(lambda x: 1 if x > 0.5 else 0)  # Binarize the scam probability for classification
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
