@@ -51,13 +51,7 @@
 </script>
 
 <form method="POST" use:enhance>
-	<Form.Field {form} name="sender">
-		<Form.Control let:attrs>
-			<Form.Label>Sender</Form.Label>
-			<Input {...attrs} bind:value={$formData.sender} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
+	<input hidden bind:value={$formData.sender} name={'sender'} />
 	<Form.Field {form} name="recipient">
 		<Form.Control let:attrs>
 			<Form.Label>Recipient</Form.Label>
