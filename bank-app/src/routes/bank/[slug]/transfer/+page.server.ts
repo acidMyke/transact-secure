@@ -3,7 +3,7 @@ import { fail, redirect } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
 import { formSchema } from './schema.js';
 import { zod } from 'sveltekit-superforms/adapters';
-import { pb, type Transaction } from '$lib/pb';
+import { User, pb, type Transaction } from '$lib/pb';
 
 export const load: PageServerLoad = async () => {
 	return {
@@ -24,14 +24,13 @@ export const actions: Actions = {
 		const { amount, sender, recipient, bankId } = form.data;
 
 		//TODO: Use ml to get chanceIsFraud
-		const transaction = {
+		const collection = await pb.collection<Transaction>('transactions').create({
 			amount: Number(amount),
 			sender,
 			recipient,
 			chanceIsFraud: 0,
 			bankId
-		};
-		const collection = await pb.collection<Transaction>('transactions').create(transaction);
+		});
 
 		return redirect(300, `/bank/${form.data.bankId}/home`);
 	}
