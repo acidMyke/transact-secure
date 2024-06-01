@@ -51,11 +51,13 @@ The trained model is serialized using Pickle and loaded for inference during run
 
 Uses a Random Forest classifier to predict whether a transaction is fraudulent based on features such as transaction amount, frequency, and credit rating.
 The model is trained on synthetic data generated to simulate real-world transaction patterns.
-Interactive User Interface:
+
+### Interactive User Interface:
 
 Users can enter transaction details and immediately see the risk assessment (High, Moderate, Low).
 Built with Svelte for a fast and responsive user experience.
-Real-time Data Handling:
+
+### Real-time Data Handling:
 
 Pocketbase manages the storage of transaction data and user information.
 Real-time updates ensure that the application reflects the most current data.
